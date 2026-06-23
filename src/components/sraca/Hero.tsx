@@ -41,17 +41,16 @@ export function Hero() {
               }`}
               aria-hidden
             >
-              {/* Megaphone / announcement icon */}
-              <svg viewBox="0 0 24 24" className="size-3" fill="currentColor">
-                <path d="M3 10v4a1 1 0 0 0 1 1h2l3.4 3.4c.6.6 1.6.2 1.6-.7V6.3c0-.9-1-1.3-1.6-.7L6 9H4a1 1 0 0 0-1 1Z" />
-                <path d="M14.5 8.5a4 4 0 0 1 0 7 1 1 0 0 0 .9 1.8 6 6 0 0 0 0-10.6 1 1 0 1 0-.9 1.8Z" />
-                {nominationsOpen && (
-                  <path
-                    className="animate-pulse-soft"
-                    d="M18 6a8 8 0 0 1 0 12 1 1 0 0 0 1 1.6 10 10 0 0 0 0-15.2A1 1 0 0 0 18 6Z"
-                    opacity="0.6"
-                  />
-                )}
+              {/* Bullhorn / announcement icon */}
+              <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                {/* Horn body */}
+                <path d="M3 9.5v5a1 1 0 0 0 1 1h2.5" />
+                <path d="M6.5 15.5V19a.5.5 0 0 0 .5.5h1.5a.5.5 0 0 0 .5-.5v-3.5" />
+                {/* Cone of the megaphone */}
+                <path d="M6 9a1 1 0 0 1 1-1l7-3.5v13L7 14a1 1 0 0 1-1-1V9Z" />
+                {/* Sound waves */}
+                <path d="M16 8.5a3.5 3.5 0 0 1 0 7" strokeWidth="1.6" />
+                <path d="M17.5 6a6 6 0 0 1 0 12" strokeWidth="1.4" opacity="0.6" />
               </svg>
             </span>
             <span className="eyebrow !text-ink">
