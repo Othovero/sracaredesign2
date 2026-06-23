@@ -33,3 +33,6 @@ dist-ssr
 
 # Local source assets (duplicated into public/)
 more uploads/
+
+# Vercel build output
+.vercel
