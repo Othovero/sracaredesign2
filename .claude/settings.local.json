@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p public/sponsors)",
+      "Bash(cp \"more uploads/sponsors/musicmagpie.avif\" public/sponsors/musicmagpie.avif)",
+      "Bash(cp \"more uploads/sponsors/togethertrust.avif\" public/sponsors/togethertrust.avif)",
+      "Bash(cp \"more uploads/sponsors/S-REP logo - colour dark_edited.avif\" public/sponsors/srep.avif)",
+      "Bash(npm install *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(node -e \"const f=require\\('react-icons/fa6'\\); console.log\\('FaFacebookF', typeof f.FaFacebookF\\); console.log\\('FaInstagram', typeof f.FaInstagram\\);\")",
+      "Bash(sed 's/\\\\x1b\\\\[[0-9;]*m//g')",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8080/)",
+      "Bash(npm run *)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "mcp__plugin_github_github__get_me",
+      "Bash(du -sh public)",
+      "Bash(ls -la public/*.mp4)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
