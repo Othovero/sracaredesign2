@@ -146,7 +146,8 @@ export function Highlights() {
                 key={i}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`group relative aspect-square overflow-hidden rounded-2xl ring-1 transition-all duration-500 ${
+                style={{ animationDelay: `${i * 90}ms` }}
+                className={`stagger-item group relative aspect-square overflow-hidden rounded-2xl ring-1 transition-all duration-500 ${
                   i === active
                     ? "ring-brand-orange ring-2 shadow-lift -translate-y-0.5"
                     : "ring-ink/8 hover:-translate-y-0.5 hover:shadow-soft"
@@ -197,26 +198,34 @@ export function Highlights() {
           role="dialog"
           aria-modal="true"
           aria-label="SRACA 2025 recap video"
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-purple-deep/95 p-4 backdrop-blur-sm animate-fade-up"
+          className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-brand-purple-deep/95 p-4 backdrop-blur-sm animate-fade-up sm:p-8"
           onClick={() => setVideoOpen(false)}
         >
           <button
             type="button"
             onClick={() => setVideoOpen(false)}
             aria-label="Close video"
-            className="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-stone-base text-ink shadow-lift hover:scale-105 transition"
+            className="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full bg-stone-base px-4 py-2.5 text-sm font-semibold text-ink shadow-lift transition hover:scale-105"
           >
-            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+            <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
             </svg>
+            Close
           </button>
+
+          {/* Stop propagation only on the video itself so its controls work;
+              tapping anywhere else (backdrop) closes the player. */}
           <video
             src="/Srep recap.mp4"
             controls
             autoPlay
-            className="max-h-[90vh] w-full max-w-4xl rounded-2xl shadow-lift"
+            playsInline
+            className="max-h-[80vh] w-full max-w-4xl rounded-2xl shadow-lift"
             onClick={(e) => e.stopPropagation()}
           />
+          <p className="text-xs font-medium uppercase tracking-widest text-stone-base/70">
+            Tap outside the video or press Esc to close
+          </p>
         </div>
       )}
     </section>

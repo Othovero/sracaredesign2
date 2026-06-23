@@ -24,11 +24,11 @@ export function PastWinners() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="eyebrow">Roll of honour</span>
-            <h2 className="display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">
+            <span className="stagger-item eyebrow inline-block">Roll of honour</span>
+            <h2 className="stagger-item display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl" style={{ animationDelay: "80ms" }}>
               The 2026 winners.
             </h2>
-            <p className="mt-4 max-w-lg text-ink-soft">
+            <p className="stagger-item mt-4 max-w-lg text-ink-soft" style={{ animationDelay: "160ms" }}>
               Ten extraordinary individuals and organisations whose work has already
               left Stockport better than they found it.
             </p>

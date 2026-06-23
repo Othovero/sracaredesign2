@@ -106,18 +106,18 @@ export function Hero() {
               href={INSTAGRAM_POST_URL}
               target="_blank"
               rel="noreferrer"
-              className="glass-card animate-float group absolute -bottom-6 -left-6 block max-w-[270px] rounded-2xl p-5 shadow-lift transition-transform hover:scale-[1.03]"
+              className="glass-card animate-float group absolute -bottom-5 -left-4 block max-w-[180px] rounded-2xl p-3.5 shadow-lift transition-transform hover:scale-[1.03] sm:-bottom-6 sm:-left-6 sm:max-w-[270px] sm:p-5"
             >
-              <div className="flex items-center gap-2.5">
-                <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)] text-white">
-                  <FaInstagram className="size-4" aria-hidden />
+              <div className="flex items-center gap-2">
+                <span className="grid size-7 shrink-0 place-items-center rounded-full bg-[linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)] text-white sm:size-8">
+                  <FaInstagram className="size-3.5 sm:size-4" aria-hidden />
                 </span>
                 <span className="eyebrow !text-ink-soft">@srep_gm</span>
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-ink">
+              <p className="mt-2 text-xs leading-relaxed text-ink sm:mt-3 sm:text-sm">
                 Relive the moments from our last SRACA gala.
               </p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-purple-deep transition-colors group-hover:text-brand-orange">
+              <span className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-purple-deep transition-colors group-hover:text-brand-orange sm:mt-3 sm:text-xs">
                 View post on Instagram
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </span>

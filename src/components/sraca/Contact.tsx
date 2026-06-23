@@ -12,11 +12,11 @@ export function Contact() {
       />
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
         <div>
-          <span className="eyebrow">Get in touch</span>
-          <h2 className="display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl text-balance">
+          <span className="stagger-item eyebrow inline-block">Get in touch</span>
+          <h2 className="stagger-item display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl text-balance" style={{ animationDelay: "80ms" }}>
             Talk to the SRACA team.
           </h2>
-          <p className="mt-6 max-w-md text-ink-soft">
+          <p className="stagger-item mt-6 max-w-md text-ink-soft" style={{ animationDelay: "160ms" }}>
             Questions about a nomination, sponsorship, press or tickets — drop
             us a line and we'll come back to you within two working days.
           </p>

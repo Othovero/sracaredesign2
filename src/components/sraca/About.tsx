@@ -3,8 +3,8 @@ export function About() {
     <section id="about" className="reveal relative px-4 py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
         <div>
-          <span className="eyebrow">About SRACA</span>
-          <h2 className="display mt-3 text-4xl text-ink sm:text-5xl">
+          <span className="stagger-item eyebrow inline-block">About SRACA</span>
+          <h2 className="stagger-item display mt-3 text-4xl text-ink sm:text-5xl" style={{ animationDelay: "80ms" }}>
             Presented by
             <br />
             <span className="text-brand-purple-deep">S-REP.</span>
@@ -37,8 +37,12 @@ export function About() {
               { k: "12+", v: "Years honouring excellence" },
               { k: "60+", v: "Past winners celebrated" },
               { k: "1,000s", v: "Of lives shaped" },
-            ].map((s) => (
-              <div key={s.v} className="bg-stone-base p-6">
+            ].map((s, i) => (
+              <div
+                key={s.v}
+                className="stagger-item bg-stone-base p-6"
+                style={{ animationDelay: `${i * 110}ms` }}
+              >
                 <span className="display block text-3xl text-brand-orange">{s.k}</span>
                 <span className="mt-1 block text-sm text-ink-soft">{s.v}</span>
               </div>

@@ -18,7 +18,14 @@
       "Bash(du -sh public)",
       "Bash(ls -la public/*.mp4)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)",
+      "mcp__plugin_github_github__create_repository",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(curl -s -o /dev/null -w \"dev server: HTTP %{http_code}\\\\n\" http://localhost:8080/)",
+      "Bash(git ls-remote *)",
+      "Bash(NITRO_PRESET=vercel npm run build)"
     ]
   }
 }

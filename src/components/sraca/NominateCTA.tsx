@@ -104,62 +104,6 @@ export function NominateCTA() {
                 Review the categories
               </a>
             </div>
-
-            {/* Share row */}
-            <div className="mt-10 rounded-2xl border border-ink/8 bg-white/70 p-5 backdrop-blur">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-orange">
-                    Help spread the word
-                  </span>
-                  <p className="mt-1 text-sm font-medium text-ink">
-                    Share SRACA with your community.
-                  </p>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <ShareButton
-                    label="WhatsApp"
-                    href={`https://wa.me/?text=${encodedText}%20${encodedUrl}`}
-                    accent="bg-brand-green/15 text-brand-green hover:bg-brand-green/25"
-                    icon={
-                      <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
-                        <path d="M20.5 3.5A11.7 11.7 0 0 0 3.4 19.2L2 22l2.9-1.4a11.7 11.7 0 0 0 17.4-15.4l-1.8-1.7Zm-8.5 17a9.4 9.4 0 0 1-4.8-1.3l-.3-.2-2.6.7.7-2.5-.2-.3a9.4 9.4 0 1 1 7.2 3.6Zm5.3-7c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1l-1 1.2c-.2.2-.4.3-.6.1a7.6 7.6 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.4.1-.2 0-.4 0-.6s-.7-1.6-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3.3 3.3 0 0 0-1 2.4c0 1.4 1 2.8 1.2 3a11 11 0 0 0 4.5 4 5.6 5.6 0 0 0 2.6.5 2.7 2.7 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z" />
-                      </svg>
-                    }
-                  />
-                  <ShareButton
-                    label="Facebook"
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-                    accent="bg-brand-purple/15 text-brand-purple hover:bg-brand-purple/25"
-                    icon={
-                      <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
-                        <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3a23 23 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.4H7.5V14h2.7v8h3.3Z" />
-                      </svg>
-                    }
-                  />
-                  <ShareButton
-                    label="X"
-                    href={`https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`}
-                    accent="bg-ink/10 text-ink hover:bg-ink/20"
-                    icon={
-                      <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
-                        <path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.5L4.7 21H1.5l7.5-8.6L1.2 3h6.6l4.6 6.1L17.5 3Zm-1.1 16h1.8L7.7 5H5.8l10.6 14Z" />
-                      </svg>
-                    }
-                  />
-                  <button
-                    type="button"
-                    onClick={onShare}
-                    className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-4 py-2 text-xs font-semibold text-stone-base shadow-soft transition-transform hover:scale-[1.04]"
-                  >
-                    <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
-                      <path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1.6-5.5 4-11 11-11Z" />
-                    </svg>
-                    {copied ? "Link copied" : "Share"}
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="glass-card relative flex flex-col justify-center rounded-[2rem] p-8 shadow-soft">
@@ -201,6 +145,62 @@ export function NominateCTA() {
               Nominate now
               <span aria-hidden>→</span>
             </a>
+          </div>
+        </div>
+
+        {/* Share row — full width, below the countdown */}
+        <div className="relative mt-10 rounded-2xl border border-ink/8 bg-white/70 p-5 backdrop-blur">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-orange">
+                Help spread the word
+              </span>
+              <p className="mt-1 text-sm font-medium text-ink">
+                Share SRACA with your community.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <ShareButton
+                label="WhatsApp"
+                href={`https://wa.me/?text=${encodedText}%20${encodedUrl}`}
+                accent="bg-brand-green/15 text-brand-green hover:bg-brand-green/25"
+                icon={
+                  <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
+                    <path d="M20.5 3.5A11.7 11.7 0 0 0 3.4 19.2L2 22l2.9-1.4a11.7 11.7 0 0 0 17.4-15.4l-1.8-1.7Zm-8.5 17a9.4 9.4 0 0 1-4.8-1.3l-.3-.2-2.6.7.7-2.5-.2-.3a9.4 9.4 0 1 1 7.2 3.6Zm5.3-7c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1l-1 1.2c-.2.2-.4.3-.6.1a7.6 7.6 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.4.1-.2 0-.4 0-.6s-.7-1.6-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3.3 3.3 0 0 0-1 2.4c0 1.4 1 2.8 1.2 3a11 11 0 0 0 4.5 4 5.6 5.6 0 0 0 2.6.5 2.7 2.7 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z" />
+                  </svg>
+                }
+              />
+              <ShareButton
+                label="Facebook"
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+                accent="bg-brand-purple/15 text-brand-purple hover:bg-brand-purple/25"
+                icon={
+                  <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
+                    <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3a23 23 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.4H7.5V14h2.7v8h3.3Z" />
+                  </svg>
+                }
+              />
+              <ShareButton
+                label="X"
+                href={`https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`}
+                accent="bg-ink/10 text-ink hover:bg-ink/20"
+                icon={
+                  <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
+                    <path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.5L4.7 21H1.5l7.5-8.6L1.2 3h6.6l4.6 6.1L17.5 3Zm-1.1 16h1.8L7.7 5H5.8l10.6 14Z" />
+                  </svg>
+                }
+              />
+              <button
+                type="button"
+                onClick={onShare}
+                className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-4 py-2 text-xs font-semibold text-stone-base shadow-soft transition-transform hover:scale-[1.04]"
+              >
+                <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
+                  <path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1.6-5.5 4-11 11-11Z" />
+                </svg>
+                {copied ? "Link copied" : "Share"}
+              </button>
+            </div>
           </div>
         </div>
       </div>

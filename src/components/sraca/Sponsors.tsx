@@ -21,11 +21,11 @@ export function Sponsors() {
     <section id="sponsors" className="reveal bg-stone-base px-4 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
-          <span className="eyebrow">With thanks to</span>
-          <h2 className="display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl">
+          <span className="stagger-item eyebrow inline-block">With thanks to</span>
+          <h2 className="stagger-item display mt-3 text-4xl text-ink sm:text-5xl lg:text-6xl" style={{ animationDelay: "80ms" }}>
             Our partners &amp; sponsors.
           </h2>
-          <p className="mt-4 max-w-xl text-ink-soft">
+          <p className="stagger-item mt-4 max-w-xl text-ink-soft" style={{ animationDelay: "160ms" }}>
             SRACA is only possible because Stockport's businesses, charities and
             public bodies stand alongside us each year.
           </p>

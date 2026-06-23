@@ -24,7 +24,7 @@ export function Gala() {
           loading="lazy"
         />
         <div className="relative grid gap-10 p-6 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:p-16">
-          <div className="glass-card rounded-3xl p-8 sm:p-10">
+          <div className="glass-card rounded-3xl p-6 sm:p-10">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow/30 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-brand-purple-deep ring-1 ring-brand-yellow/50">
              
               Coming soon
@@ -81,9 +81,10 @@ export function Gala() {
             </div>
           </div>
 
-          {/* Photo collage — distinct shots from last year's gala */}
-          <div className="grid h-[24rem] grid-cols-2 grid-rows-2 gap-3 sm:h-[30rem] sm:gap-4 lg:h-auto">
-            <div className="hover-zoom row-span-2 rounded-3xl shadow-lift ring-1 ring-white/20">
+          {/* Photo collage — distinct shots from last year's gala.
+              Aspect-ratio cells so nothing crops oddly on mobile. */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:content-center">
+            <div className="hover-zoom col-span-2 aspect-[16/10] rounded-3xl shadow-lift ring-1 ring-white/20">
               <img
                 src="/TEEMEDIAA-180.jpg"
                 alt="The Grand Hall of Stockport Town Hall filled with SRACA guests"
@@ -91,7 +92,7 @@ export function Gala() {
                 loading="lazy"
               />
             </div>
-            <div className="hover-zoom rounded-3xl shadow-lift ring-1 ring-white/20">
+            <div className="hover-zoom aspect-square rounded-3xl shadow-lift ring-1 ring-white/20">
               <img
                 src="/africanstore.jpg"
                 alt="Guests browsing a community craft and culture stall at the gala"
@@ -99,7 +100,7 @@ export function Gala() {
                 loading="lazy"
               />
             </div>
-            <div className="hover-zoom rounded-3xl shadow-lift ring-1 ring-white/20">
+            <div className="hover-zoom aspect-square rounded-3xl shadow-lift ring-1 ring-white/20">
               <img
                 src="/IMG-20251002-WA0005.jpg"
                 alt="An award presented on stage at the SRACA ceremony"
