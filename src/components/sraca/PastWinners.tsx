@@ -63,7 +63,7 @@ export function PastWinners() {
               View the full <span className="text-brand-gold-soft">roll of honour.</span>
             </p>
             <p className="mt-3 text-sm text-stone-base/75">
-              All ten 2026 winners on one keepsake poster — tap to open.
+              Tap to view all ten 2026 winners.
             </p>
             <span className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-yellow">
               Open poster

@@ -17,7 +17,7 @@ export function Contact() {
             Talk to the SRACA team.
           </h2>
           <p className="stagger-item mt-6 max-w-md text-ink-soft" style={{ animationDelay: "160ms" }}>
-            Questions about a nomination, sponsorship, press or tickets — drop
+            Questions about a nomination, sponsorship, press or tickets? Drop
             us a line and we'll come back to you within two working days.
           </p>
 
