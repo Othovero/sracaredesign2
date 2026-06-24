@@ -18,7 +18,7 @@ const sponsors = [
 
 export function Sponsors() {
   return (
-    <section id="sponsors" className="reveal bg-stone-base px-4 py-24 sm:py-32">
+    <section id="sponsors" className="reveal px-4 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
           <span className="stagger-item eyebrow inline-block">With thanks to</span>

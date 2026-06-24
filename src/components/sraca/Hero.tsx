@@ -17,42 +17,24 @@ export function Hero() {
       {/* Living brand blobs */}
       <div
         aria-hidden
-        className="animate-blob pointer-events-none absolute -top-24 -left-32 size-[420px] rounded-full bg-brand-yellow/40 blur-3xl"
+        className="animate-blob pointer-events-none absolute -top-24 -left-32 size-[420px] rounded-full bg-brand-yellow/25 blur-3xl"
       />
       <div
         aria-hidden
-        className="animate-blob-2 pointer-events-none absolute top-40 -right-32 size-[460px] rounded-full bg-brand-purple/25 blur-3xl"
+        className="animate-blob-2 pointer-events-none absolute top-40 -right-32 size-[460px] rounded-full bg-brand-purple/15 blur-3xl"
       />
       <div
         aria-hidden
-        className="animate-blob-3 pointer-events-none absolute -bottom-32 left-1/3 size-[380px] rounded-full bg-brand-orange/30 blur-3xl"
+        className="animate-blob-3 pointer-events-none absolute -bottom-32 left-1/3 size-[380px] rounded-full bg-brand-orange/20 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
         <div className="animate-fade-up">
           <span
-            className={`inline-flex items-center gap-2.5 rounded-lg border bg-stone-base/70 px-3.5 py-2 backdrop-blur ${
+            className={`inline-flex items-center rounded-lg border bg-stone-base/70 px-3.5 py-2 backdrop-blur ${
               nominationsOpen ? "border-brand-orange/30" : "border-ink/15"
             }`}
           >
-            <span
-              className={`grid size-5 shrink-0 place-items-center rounded-md ${
-                nominationsOpen ? "bg-brand-orange/15 text-brand-orange" : "bg-ink/10 text-ink/50"
-              }`}
-              aria-hidden
-            >
-              {/* Bullhorn / announcement icon */}
-              <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                {/* Horn body */}
-                <path d="M3 9.5v5a1 1 0 0 0 1 1h2.5" />
-                <path d="M6.5 15.5V19a.5.5 0 0 0 .5.5h1.5a.5.5 0 0 0 .5-.5v-3.5" />
-                {/* Cone of the megaphone */}
-                <path d="M6 9a1 1 0 0 1 1-1l7-3.5v13L7 14a1 1 0 0 1-1-1V9Z" />
-                {/* Sound waves */}
-                <path d="M16 8.5a3.5 3.5 0 0 1 0 7" strokeWidth="1.6" />
-                <path d="M17.5 6a6 6 0 0 1 0 12" strokeWidth="1.4" opacity="0.6" />
-              </svg>
-            </span>
             <span className="eyebrow !text-ink">
               {nominationsOpen
                 ? "Nominations close: 31 Oct 2026"

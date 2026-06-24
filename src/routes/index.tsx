@@ -55,7 +55,9 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-dvh bg-stone-base text-foreground">
+    <div className="bg-motif min-h-dvh text-foreground">
+      {/* Faint film grain over the whole page */}
+      <div aria-hidden className="grain-overlay" />
       <SiteNav />
       <main id="main">
         <Hero />

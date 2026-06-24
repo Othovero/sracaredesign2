@@ -16,8 +16,12 @@ const SOCIALS = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-brand-purple-deep px-4 pt-20 pb-10 text-stone-base">
-      <div className="mx-auto max-w-7xl">
+    <footer className="relative overflow-hidden bg-brand-purple-deep px-4 pt-20 pb-10 text-stone-base">
+      <div
+        aria-hidden
+        className="mark-watermark pointer-events-none absolute -right-16 -top-12 size-[320px] [background-size:contain]"
+      />
+      <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <SracaLockup variant="white" className="h-11 w-auto" />

@@ -64,6 +64,10 @@ export function Categories() {
         aria-hidden
         className="pointer-events-none absolute -top-32 right-10 size-[420px] rounded-full bg-brand-orange/30 blur-3xl"
       />
+      <div
+        aria-hidden
+        className="mark-watermark pointer-events-none absolute -bottom-10 -left-16 size-[360px] [background-size:contain]"
+      />
       <div className="relative mx-auto max-w-7xl">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
