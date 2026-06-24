@@ -36,3 +36,6 @@ more uploads/
 
 # Vercel build output
 .vercel
+
+# Shared screenshots (not project assets)
+WhatsApp Image*

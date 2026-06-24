@@ -23,8 +23,8 @@ export function Gala() {
           className="absolute inset-0 h-full w-full object-cover opacity-25"
           loading="lazy"
         />
-        <div className="relative grid gap-10 p-6 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:p-16">
-          <div className="glass-card rounded-3xl p-6 sm:p-10">
+        <div className="relative grid grid-cols-1 gap-10 p-6 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:p-16">
+          <div className="glass-card min-w-0 rounded-3xl p-6 sm:p-10">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow/30 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-brand-purple-deep ring-1 ring-brand-yellow/50">
              
               Coming soon
@@ -42,19 +42,18 @@ export function Gala() {
               {placeholders.map((d) => (
                 <div
                   key={d.k}
-                  className="grid grid-cols-[7rem_1fr] gap-4 px-5 py-3 text-sm sm:grid-cols-[9rem_1fr]"
+                  className="flex items-center justify-between gap-3 px-4 py-3.5 text-sm sm:px-5"
                 >
-                  <dt className="self-center text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
+                  <dt className="text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
                     {d.k}
                   </dt>
-                  <dd className="font-medium text-ink">
+                  <dd>
                     {d.v === "TBA" ? (
-                      <span className="inline-flex items-center gap-2 text-ink-soft">
-                        <span className="inline-block h-2 w-16 rounded-full bg-ink/10" />
+                      <span className="inline-flex whitespace-nowrap rounded-full bg-ink/[0.06] px-3 py-1 text-xs font-semibold text-ink-soft">
                         To be announced
                       </span>
                     ) : (
-                      d.v
+                      <span className="font-semibold text-ink">{d.v}</span>
                     )}
                   </dd>
                 </div>
@@ -83,7 +82,7 @@ export function Gala() {
 
           {/* Photo collage — distinct shots from last year's gala.
               Aspect-ratio cells so nothing crops oddly on mobile. */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:content-center">
+          <div className="grid min-w-0 grid-cols-2 gap-3 sm:gap-4 lg:content-center">
             <div className="hover-zoom col-span-2 aspect-[16/10] rounded-3xl shadow-lift ring-1 ring-white/20">
               <img
                 src="/TEEMEDIAA-180.jpg"
