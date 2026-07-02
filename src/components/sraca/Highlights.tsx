@@ -45,10 +45,39 @@ const slides = [
   },
 ];
 
+const recaps = [
+  {
+    id: "2025-highlights",
+    year: "2025",
+    tag: "Highlights",
+    src: "/recap-2025.mp4",
+    poster: "/TEEMEDIAA-208.jpg",
+    blurb: "The full evening — awards, performances and the room on its feet.",
+  },
+  {
+    id: "2025-recap",
+    year: "2025",
+    tag: "Recap",
+    src: "/Srep recap.mp4",
+    poster: "/TEEMEDIAA-268.jpg",
+    blurb: "A short recap of the night, from red carpet to dancefloor.",
+  },
+  {
+    id: "2024-highlights",
+    year: "2024",
+    tag: "Highlights",
+    src: "/recap-2024.mp4",
+    poster: "/IMG-20251002-WA0008.jpg",
+    blurb: "Where it all built from — celebration, culture and community.",
+  },
+];
+
 export function Highlights() {
   const [active, setActive] = useState(0);
-  const [videoOpen, setVideoOpen] = useState(false);
+  const [videoId, setVideoId] = useState<string | null>(null);
   const timerRef = useRef<number | null>(null);
+
+  const activeRecap = recaps.find((r) => r.id === videoId) ?? null;
 
   useEffect(() => {
     timerRef.current = window.setInterval(() => {
@@ -60,9 +89,9 @@ export function Highlights() {
   }, []);
 
   useEffect(() => {
-    if (!videoOpen) return;
+    if (!videoId) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setVideoOpen(false);
+      if (e.key === "Escape") setVideoId(null);
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -70,7 +99,7 @@ export function Highlights() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [videoOpen]);
+  }, [videoId]);
 
   return (
     <section id="highlights" className="reveal px-4 py-24 sm:py-32">
@@ -167,60 +196,90 @@ export function Highlights() {
           </div>
         </div>
 
-        {/* Video CTA strip */}
-        <button
-          type="button"
-          onClick={() => setVideoOpen(true)}
-          className="group mt-10 flex w-full flex-col gap-4 rounded-3xl bg-brand-purple-deep p-6 text-stone-base shadow-soft sm:flex-row sm:items-center sm:justify-between sm:p-8 text-left"
-        >
-          <div className="flex items-center gap-5">
-            <span className="grid size-14 shrink-0 place-items-center rounded-full bg-brand-yellow text-brand-purple-deep transition-transform group-hover:scale-110">
-              <svg viewBox="0 0 24 24" className="size-6" fill="currentColor" aria-hidden>
-                <path d="M8 5v14l11-7z" />
-              </svg>
+        {/* Watch the highlights — pick a year */}
+        <div className="mt-10 overflow-hidden rounded-3xl bg-brand-purple-deep p-6 text-stone-base shadow-soft sm:p-8">
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-yellow">
+              Watch the highlights
             </span>
-            <div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-yellow">
-                Watch the 2025 recap
-              </span>
-              <p className="display mt-1 text-xl sm:text-2xl">90 seconds of SRACA 2025</p>
-            </div>
+            <p className="display text-xl sm:text-2xl">
+              Relive the moments — pick a film.
+            </p>
           </div>
-          <span className="text-sm font-semibold underline-offset-4 group-hover:underline">
-            Play video →
-          </span>
-        </button>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {recaps.map((r) => (
+              <button
+                key={r.id}
+                type="button"
+                onClick={() => setVideoId(r.id)}
+                aria-label={`Play the SRACA ${r.year} ${r.tag}`}
+                className="group relative flex items-center gap-4 overflow-hidden rounded-2xl p-4 text-left ring-1 ring-white/15 transition-all duration-500 hover:ring-brand-yellow/60"
+              >
+                <img
+                  src={r.poster}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 h-full w-full object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-brand-purple-deep via-brand-purple-deep/80 to-brand-purple-deep/40" />
+                <span className="relative grid size-12 shrink-0 place-items-center rounded-full bg-brand-yellow text-brand-purple-deep transition-transform group-hover:scale-110">
+                  <svg viewBox="0 0 24 24" className="size-5" fill="currentColor" aria-hidden>
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+                <div className="relative min-w-0">
+                  <div className="flex items-center gap-2">
+                    <p className="display text-2xl">SRACA {r.year}</p>
+                    <span className="rounded-full bg-brand-yellow/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-brand-yellow">
+                      {r.tag}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-stone-base/75">{r.blurb}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Video lightbox */}
-      {videoOpen && (
+      {activeRecap && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="SRACA 2025 recap video"
-          className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-brand-purple-deep/95 p-4 backdrop-blur-sm animate-fade-up sm:p-8"
-          onClick={() => setVideoOpen(false)}
+          aria-label={`SRACA ${activeRecap.year} ${activeRecap.tag} video`}
+          className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-brand-purple-deep/95 p-3 backdrop-blur-sm animate-fade-up sm:p-6"
+          onClick={() => setVideoId(null)}
         >
-          <button
-            type="button"
-            onClick={() => setVideoOpen(false)}
-            aria-label="Close video"
-            className="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full bg-stone-base px-4 py-2.5 text-sm font-semibold text-ink shadow-lift transition hover:scale-105"
-          >
-            <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            </svg>
-            Close
-          </button>
+          <div className="flex w-full max-w-5xl items-center justify-between">
+            <span className="text-sm font-bold uppercase tracking-[0.22em] text-brand-yellow">
+              SRACA {activeRecap.year} · {activeRecap.tag}
+            </span>
+            <button
+              type="button"
+              onClick={() => setVideoId(null)}
+              aria-label="Close video"
+              className="inline-flex items-center gap-2 rounded-full bg-stone-base px-4 py-2.5 text-sm font-semibold text-ink shadow-lift transition hover:scale-105"
+            >
+              <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+              </svg>
+              Close
+            </button>
+          </div>
 
-          {/* Stop propagation only on the video itself so its controls work;
-              tapping anywhere else (backdrop) closes the player. */}
+          {/* object-contain + max dims on both axes = always fits the screen.
+              Stop propagation so the controls work; tapping the backdrop closes. */}
           <video
-            src="/Srep recap.mp4"
+            key={activeRecap.src}
+            src={activeRecap.src}
+            poster={activeRecap.poster}
             controls
             autoPlay
             playsInline
-            className="max-h-[80vh] w-full max-w-4xl rounded-2xl shadow-lift"
+            className="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-lift"
             onClick={(e) => e.stopPropagation()}
           />
           <p className="text-xs font-medium uppercase tracking-widest text-stone-base/70">

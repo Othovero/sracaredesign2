@@ -156,7 +156,7 @@ export function NominateCTA() {
                 Help spread the word
               </span>
               <p className="mt-1 text-sm font-medium text-ink">
-                Share SRACA with your community.
+                Share #SRACA27 with your community.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">

@@ -58,11 +58,14 @@ export function Sponsors() {
             celebrate the people shaping a more equitable Stockport.
           </p>
           <a
-            href="#contact"
+            href="mailto:email@srep.co.uk?subject=SRACA%20Sponsorship%20Enquiry&body=Hi%20SRACA%20team%2C%0A%0AWe'd%20like%20to%20explore%20sponsoring%20the%20Stockport%20Race%20%26%20Culture%20Awards.%0A%0AOrganisation%3A%0AContact%20name%3A%0APhone%3A%0A%0AThank%20you."
             className="inline-flex items-center gap-2 rounded-full bg-brand-purple-deep px-7 py-4 text-sm font-semibold text-stone-base shadow-lift transition-transform hover:scale-[1.03]"
           >
-            Become a sponsor
-            <span aria-hidden>→</span>
+            <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+            Email us to sponsor
           </a>
         </div>
       </div>
