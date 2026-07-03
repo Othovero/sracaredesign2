@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export type LightboxImage = { src: string; alt: string; caption?: string };
 
@@ -36,7 +37,12 @@ export function ImageLightbox({
 
   if (!current) return null;
 
-  return (
+  // Portalled to document.body: an ancestor section uses the `.reveal`
+  // scroll-in class, which sets a CSS transform. Any ancestor transform
+  // creates a new containing block for `position: fixed` descendants, so
+  // without the portal this modal renders relative to that section's box
+  // instead of the viewport (off-center, close button scrolled out of view).
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -128,6 +134,7 @@ export function ImageLightbox({
       <p className="text-xs font-medium uppercase tracking-widest text-stone-base/70">
         Use arrow keys or tap outside to close
       </p>
-    </div>
+    </div>,
+    document.body
   );
 }

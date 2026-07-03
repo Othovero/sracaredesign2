@@ -97,7 +97,7 @@ export function Hero() {
                 <span className="eyebrow !text-ink-soft">@srep_gm</span>
               </div>
               <p className="mt-2 text-xs leading-relaxed text-ink sm:mt-3 sm:text-sm">
-                Relive the moments from our last SRACA gala.
+                Throwback to #SRACA26.
               </p>
               <span className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-purple-deep transition-colors group-hover:text-brand-orange sm:mt-3 sm:text-xs">
                 View post on Instagram

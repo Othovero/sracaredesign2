@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ImageLightbox } from "./ImageLightbox";
 
 const slides = [
@@ -279,49 +280,52 @@ export function Highlights() {
         />
       )}
 
-      {/* Video lightbox */}
-      {activeRecap && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`SRACA ${activeRecap.year} ${activeRecap.tag} video`}
-          className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-brand-purple-deep/95 p-3 backdrop-blur-sm animate-fade-up sm:p-6"
-          onClick={() => setVideoId(null)}
-        >
-          <div className="flex w-full max-w-5xl items-center justify-between">
-            <span className="text-sm font-bold uppercase tracking-[0.22em] text-brand-yellow">
-              SRACA {activeRecap.year} · {activeRecap.tag}
-            </span>
-            <button
-              type="button"
-              onClick={() => setVideoId(null)}
-              aria-label="Close video"
-              className="inline-flex items-center gap-2 rounded-full bg-stone-base px-4 py-2.5 text-sm font-semibold text-ink shadow-lift transition hover:scale-105"
-            >
-              <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-              </svg>
-              Close
-            </button>
-          </div>
+      {/* Video lightbox - portalled to document.body so it isn't trapped by
+          the ancestor section's `.reveal` transform (breaks position:fixed). */}
+      {activeRecap &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`SRACA ${activeRecap.year} ${activeRecap.tag} video`}
+            className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-4 bg-brand-purple-deep/95 p-3 backdrop-blur-sm animate-fade-up sm:p-6"
+            onClick={() => setVideoId(null)}
+          >
+            <div className="flex w-full max-w-5xl items-center justify-between">
+              <span className="text-sm font-bold uppercase tracking-[0.22em] text-brand-yellow">
+                SRACA {activeRecap.year} · {activeRecap.tag}
+              </span>
+              <button
+                type="button"
+                onClick={() => setVideoId(null)}
+                aria-label="Close video"
+                className="inline-flex items-center gap-2 rounded-full bg-stone-base px-4 py-2.5 text-sm font-semibold text-ink shadow-lift transition hover:scale-105"
+              >
+                <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+                  <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+                </svg>
+                Close
+              </button>
+            </div>
 
-          {/* object-contain + max dims on both axes = always fits the screen.
-              Stop propagation so the controls work; tapping the backdrop closes. */}
-          <video
-            key={activeRecap.src}
-            src={activeRecap.src}
-            poster={activeRecap.poster}
-            controls
-            autoPlay
-            playsInline
-            className="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-lift"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <p className="text-xs font-medium uppercase tracking-widest text-stone-base/70">
-            Tap outside the video or press Esc to close
-          </p>
-        </div>
-      )}
+            {/* object-contain + max dims on both axes = always fits the screen.
+                Stop propagation so the controls work; tapping the backdrop closes. */}
+            <video
+              key={activeRecap.src}
+              src={activeRecap.src}
+              poster={activeRecap.poster}
+              controls
+              autoPlay
+              playsInline
+              className="max-h-[80vh] w-auto max-w-full rounded-2xl object-contain shadow-lift"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <p className="text-xs font-medium uppercase tracking-widest text-stone-base/70">
+              Tap outside the video or press Esc to close
+            </p>
+          </div>,
+          document.body
+        )}
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const POSTER_URL = "/2026winners.jpg";
 
@@ -84,33 +85,36 @@ export function PastWinners() {
         </div>
       </div>
 
-      {/* Lightbox */}
-      {open && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="2026 winners poster"
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-purple-deep/95 p-4 backdrop-blur-sm animate-fade-up"
-          onClick={() => setOpen(false)}
-        >
-          <button
-            type="button"
+      {/* Lightbox - portalled to document.body so it isn't trapped by the
+          ancestor section's `.reveal` transform (breaks position:fixed). */}
+      {open &&
+        createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="2026 winners poster"
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-purple-deep/95 p-4 backdrop-blur-sm animate-fade-up"
             onClick={() => setOpen(false)}
-            aria-label="Close poster"
-            className="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-stone-base text-ink shadow-lift hover:scale-105 transition"
           >
-            <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            </svg>
-          </button>
-          <img
-            src={POSTER_URL}
-            alt="Winners of the Stockport Race and Culture Awards 2026"
-            className="max-h-[92vh] w-auto max-w-full rounded-2xl shadow-lift ring-1 ring-stone-base/20"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Close poster"
+              className="absolute right-4 top-4 grid size-11 place-items-center rounded-full bg-stone-base text-ink shadow-lift hover:scale-105 transition"
+            >
+              <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+              </svg>
+            </button>
+            <img
+              src={POSTER_URL}
+              alt="Winners of the Stockport Race and Culture Awards 2026"
+              className="max-h-[92vh] w-auto max-w-full rounded-2xl shadow-lift ring-1 ring-stone-base/20"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>,
+          document.body
+        )}
     </section>
   );
 }
