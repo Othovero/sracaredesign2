@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ImageLightbox } from "./ImageLightbox";
 
 const slides = [
   {
@@ -52,7 +53,7 @@ const recaps = [
     tag: "Highlights",
     src: "/recap-2025.mp4",
     poster: "/TEEMEDIAA-208.jpg",
-    blurb: "The full evening — awards, performances and the room on its feet.",
+    blurb: "The full evening - awards, performances and the room on its feet.",
   },
   {
     id: "2025-recap",
@@ -68,16 +69,18 @@ const recaps = [
     tag: "Highlights",
     src: "/recap-2024.mp4",
     poster: "/IMG-20251002-WA0008.jpg",
-    blurb: "Where it all built from — celebration, culture and community.",
+    blurb: "Where it all built from - celebration, culture and community.",
   },
 ];
 
 export function Highlights() {
   const [active, setActive] = useState(0);
   const [videoId, setVideoId] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const timerRef = useRef<number | null>(null);
 
   const activeRecap = recaps.find((r) => r.id === videoId) ?? null;
+  const galleryImages = slides.map((s) => ({ src: s.img, alt: s.alt, caption: s.title }));
 
   useEffect(() => {
     timerRef.current = window.setInterval(() => {
@@ -130,13 +133,27 @@ export function Highlights() {
                   i === active ? "opacity-100 scale-100" : "opacity-0 scale-105"
                 }`}
               >
-                <img
-                  src={s.img}
-                  alt={s.alt}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent p-6 sm:p-10">
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  aria-label={`View ${s.title} full-size`}
+                  className="group/img absolute inset-0 block h-full w-full cursor-zoom-in"
+                >
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all duration-300 group-hover/img:bg-ink/15 group-hover/img:opacity-100">
+                    <span className="grid size-12 place-items-center rounded-full bg-stone-base/90 text-ink shadow-lift">
+                      <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent p-6 sm:p-10">
                   <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-yellow">
                     {s.eyebrow}
                   </span>
@@ -174,9 +191,13 @@ export function Highlights() {
               <button
                 key={i}
                 type="button"
-                onClick={() => setActive(i)}
+                onClick={() => {
+                  setActive(i);
+                  setLightboxIndex(i);
+                }}
+                aria-label={`View ${s.title} full-size`}
                 style={{ animationDelay: `${i * 90}ms` }}
-                className={`stagger-item group relative aspect-square overflow-hidden rounded-2xl ring-1 transition-all duration-500 ${
+                className={`stagger-item group relative aspect-square cursor-zoom-in overflow-hidden rounded-2xl ring-1 transition-all duration-500 ${
                   i === active
                     ? "ring-brand-orange ring-2 shadow-lift -translate-y-0.5"
                     : "ring-ink/8 hover:-translate-y-0.5 hover:shadow-soft"
@@ -188,6 +209,7 @@ export function Highlights() {
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
+                <span className="absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/10" />
                 <span className="absolute bottom-2 left-2 right-2 text-left text-[10px] font-bold uppercase tracking-widest text-stone-base drop-shadow">
                   {s.eyebrow}
                 </span>
@@ -196,14 +218,14 @@ export function Highlights() {
           </div>
         </div>
 
-        {/* Watch the highlights — pick a year */}
+        {/* Watch the highlights - pick a year */}
         <div className="mt-10 overflow-hidden rounded-3xl bg-brand-purple-deep p-6 text-stone-base shadow-soft sm:p-8">
           <div className="flex flex-col gap-1">
             <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-yellow">
               Watch the highlights
             </span>
             <p className="display text-xl sm:text-2xl">
-              Relive the moments — pick a film.
+              Relive the moments - pick a film.
             </p>
           </div>
 
@@ -243,6 +265,19 @@ export function Highlights() {
           </div>
         </div>
       </div>
+
+      {/* Photo lightbox */}
+      {lightboxIndex !== null && (
+        <ImageLightbox
+          images={galleryImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(i) => {
+            setLightboxIndex(i);
+            setActive(i);
+          }}
+        />
+      )}
 
       {/* Video lightbox */}
       {activeRecap && (

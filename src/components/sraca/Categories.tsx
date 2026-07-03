@@ -10,7 +10,7 @@ const categories = [
   {
     n: "02",
     title: "Helping Hand",
-    desc: "Recognising someone who consistently steps up to support others in need — quietly, generously, without being asked.",
+    desc: "Recognising someone who consistently steps up to support others in need - quietly, generously, without being asked.",
   },
   {
     n: "03",
@@ -40,7 +40,7 @@ const categories = [
   {
     n: "08",
     title: "Lifetime Achievement",
-    desc: "The highest honour — for a decades-long, unwavering commitment to a fairer, more united Stockport.",
+    desc: "The highest honour - for a decades-long, unwavering commitment to a fairer, more united Stockport.",
   },
   {
     n: "09",
@@ -50,7 +50,7 @@ const categories = [
   {
     n: "10",
     title: "Young Person",
-    desc: "For an under-25 changemaker already shaping what's possible — organising, creating and leading.",
+    desc: "For an under-25 changemaker already shaping what's possible - organising, creating and leading.",
   },
 ];
 

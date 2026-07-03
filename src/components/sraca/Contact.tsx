@@ -1,14 +1,46 @@
+import { useState, type FormEvent } from "react";
+
+// Get a free access key at https://web3forms.com (just enter an email - no
+// signup, no verification wait) and paste it in here. The key is safe to
+// expose client-side; it only identifies which inbox submissions go to.
+const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+
+type Status = "idle" | "sending" | "sent" | "error";
+
 export function Contact() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.currentTarget),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setStatus("sent");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="reveal relative overflow-x-clip px-4 py-24 sm:py-32">
-      {/* Living brand hue — bridges the sponsors section above */}
+      {/* Living brand hue - bridges the sponsors section above */}
       <div
         aria-hidden
-        className="animate-blob pointer-events-none absolute -top-20 right-0 size-[460px] rounded-full bg-brand-yellow/35 blur-3xl"
+        className="animate-blob pointer-events-none absolute -top-20 right-0 size-[460px] rounded-full bg-brand-gold-deep/32 blur-3xl"
       />
       <div
         aria-hidden
-        className="animate-blob-2 pointer-events-none absolute bottom-0 -left-24 size-[400px] rounded-full bg-brand-purple/20 blur-3xl"
+        className="animate-blob-2 pointer-events-none absolute bottom-0 -left-24 size-[400px] rounded-full bg-brand-purple-mid/26 blur-3xl"
       />
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
         <div>
@@ -50,17 +82,22 @@ export function Contact() {
           </dl>
         </div>
 
-        <form
-          className="glass-card rounded-3xl p-6 shadow-soft sm:p-10"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="glass-card rounded-3xl p-6 shadow-soft sm:p-10" onSubmit={onSubmit}>
           <h3 className="display text-2xl text-ink">Send a message</h3>
+
+          <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+          <input type="hidden" name="subject" value="New enquiry from the SRACA website" />
+          <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
           <div className="mt-6 grid gap-4">
             <label className="block text-sm">
               <span className="font-medium text-ink">Your name</span>
               <input
                 type="text"
-                className="mt-2 w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2"
+                name="name"
+                required
+                disabled={status === "sending"}
+                className="mt-2 w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2 disabled:opacity-60"
                 placeholder="Jane Doe"
               />
             </label>
@@ -68,13 +105,20 @@ export function Contact() {
               <span className="font-medium text-ink">Email</span>
               <input
                 type="email"
-                className="mt-2 w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2"
+                name="email"
+                required
+                disabled={status === "sending"}
+                className="mt-2 w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2 disabled:opacity-60"
                 placeholder="you@example.com"
               />
             </label>
             <label className="block text-sm">
               <span className="font-medium text-ink">Reason</span>
-              <select className="mt-2 w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2">
+              <select
+                name="reason"
+                disabled={status === "sending"}
+                className="mt-2 w-full rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2 disabled:opacity-60"
+              >
                 <option>Nomination question</option>
                 <option>Sponsorship enquiry</option>
                 <option>Tickets &amp; tables</option>
@@ -85,17 +129,34 @@ export function Contact() {
             <label className="block text-sm">
               <span className="font-medium text-ink">Message</span>
               <textarea
+                name="message"
                 rows={4}
-                className="mt-2 w-full resize-none rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2"
-                placeholder="Tell us more…"
+                required
+                disabled={status === "sending"}
+                className="mt-2 w-full resize-none rounded-xl border border-ink/10 bg-white/80 px-4 py-3 text-ink outline-none ring-brand-orange/40 focus:ring-2 disabled:opacity-60"
+                placeholder="Tell us more..."
               />
             </label>
+
             <button
               type="submit"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand-orange px-6 py-3.5 text-sm font-semibold text-stone-base shadow-lift transition-transform hover:scale-[1.02]"
+              disabled={status === "sending"}
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand-orange px-6 py-3.5 text-sm font-semibold text-stone-base shadow-lift transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
             >
-              Send message
+              {status === "sending" ? "Sending..." : "Send message"}
             </button>
+
+            {status === "sent" && (
+              <p className="rounded-xl bg-brand-green/10 px-4 py-3 text-sm font-medium text-brand-green">
+                Thanks - your message has been sent. We'll get back to you within two working days.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="rounded-xl bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+                Something went wrong sending your message. Please try again, or email us directly at{" "}
+                <a href="mailto:email@srep.co.uk" className="underline">email@srep.co.uk</a>.
+              </p>
+            )}
           </div>
         </form>
       </div>

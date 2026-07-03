@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { ImageLightbox } from "./ImageLightbox";
+
 const placeholders = [
   { k: "Date", v: "TBA" },
   { k: "Venue", v: "TBA" },
@@ -7,7 +10,24 @@ const placeholders = [
   { k: "Tickets", v: "On sale soon" },
 ];
 
+const galleryImages = [
+  {
+    src: "/TEEMEDIAA-180.jpg",
+    alt: "The Grand Hall of Stockport Town Hall filled with SRACA guests",
+  },
+  {
+    src: "/africanstore.jpg",
+    alt: "Guests browsing a community craft and culture stall at the gala",
+  },
+  {
+    src: "/IMG-20251002-WA0005.jpg",
+    alt: "An award presented on stage at the SRACA ceremony",
+  },
+];
+
 export function Gala() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
     <section id="gala" className="reveal relative overflow-x-clip px-4 py-24 sm:py-32">
       {/* Living dark-purple hue bridging the gala + roll of honour */}
@@ -26,7 +46,7 @@ export function Gala() {
         <div className="relative grid grid-cols-1 gap-10 p-6 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:p-16">
           <div className="glass-card min-w-0 rounded-3xl p-6 sm:p-10">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow/30 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-brand-purple-deep ring-1 ring-brand-yellow/50">
-             
+
               Coming soon
             </span>
             <h2 className="display mt-4 text-4xl text-ink sm:text-5xl text-balance">
@@ -80,36 +100,46 @@ export function Gala() {
             </div>
           </div>
 
-          {/* Photo collage — distinct shots from last year's gala.
-              Aspect-ratio cells so nothing crops oddly on mobile. */}
+          {/* Photo collage - distinct shots from last year's gala.
+              Aspect-ratio cells so nothing crops oddly on mobile. Click to preview. */}
           <div className="grid min-w-0 grid-cols-2 gap-3 sm:gap-4 lg:content-center">
-            <div className="hover-zoom col-span-2 aspect-[16/10] rounded-3xl shadow-lift ring-1 ring-white/20">
-              <img
-                src="/TEEMEDIAA-180.jpg"
-                alt="The Grand Hall of Stockport Town Hall filled with SRACA guests"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="hover-zoom aspect-square rounded-3xl shadow-lift ring-1 ring-white/20">
-              <img
-                src="/africanstore.jpg"
-                alt="Guests browsing a community craft and culture stall at the gala"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="hover-zoom aspect-square rounded-3xl shadow-lift ring-1 ring-white/20">
-              <img
-                src="/IMG-20251002-WA0005.jpg"
-                alt="An award presented on stage at the SRACA ceremony"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            {galleryImages.map((img, i) => (
+              <button
+                key={img.src}
+                type="button"
+                onClick={() => setLightboxIndex(i)}
+                aria-label={`View photo ${i + 1} full-size`}
+                className={`hover-zoom group relative cursor-zoom-in overflow-hidden rounded-3xl shadow-lift ring-1 ring-white/20 ${
+                  i === 0 ? "col-span-2 aspect-[16/10]" : "aspect-square"
+                }`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all duration-300 group-hover:bg-ink/15 group-hover:opacity-100">
+                  <span className="grid size-11 place-items-center rounded-full bg-stone-base/90 text-ink shadow-lift">
+                    <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <ImageLightbox
+          images={galleryImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={setLightboxIndex}
+        />
+      )}
     </section>
   );
 }

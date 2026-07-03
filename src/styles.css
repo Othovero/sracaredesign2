@@ -44,8 +44,10 @@
   --color-brand-orange: var(--brand-orange);
   --color-brand-gold: var(--brand-gold);
   --color-brand-gold-soft: var(--brand-gold-soft);
+  --color-brand-gold-deep: var(--brand-gold-deep);
   --color-brand-yellow: var(--brand-yellow);
   --color-brand-purple: var(--brand-purple);
+  --color-brand-purple-mid: var(--brand-purple-mid);
   --color-brand-purple-deep: var(--brand-purple-deep);
   --color-brand-green: var(--brand-green);
   --color-ink: var(--ink);
@@ -66,12 +68,14 @@
   --background: oklch(0.985 0.005 70);
   --foreground: oklch(0.18 0.05 300);
 
-  /* Brand palette — gold-led, matched to SRACA logo laurels on deep purple */
+  /* Brand palette - gold-led, matched to SRACA logo laurels on deep purple */
   --brand-orange: oklch(0.66 0.135 78);          /* deep gold accent (was orange) */
   --brand-gold: oklch(0.66 0.135 78);            /* alias */
   --brand-gold-soft: oklch(0.78 0.14 82);        /* lighter gold for highlights */
+  --brand-gold-deep: oklch(0.5 0.15 76);         /* rich, richer gold for ambient blobs */
   --brand-yellow: oklch(0.82 0.15 82);           /* warm champagne gold */
   --brand-purple: oklch(0.62 0.20 305);          /* #9E57E8 */
+  --brand-purple-mid: oklch(0.42 0.185 303);     /* richer mid-purple for ambient blobs */
   --brand-purple-deep: oklch(0.25 0.12 305);     /* #2E0845 */
   --brand-green: oklch(0.68 0.18 135);           /* #5CB000 */
 
@@ -218,6 +222,9 @@
       0 1px 2px color-mix(in oklab, var(--ink) 4%, transparent),
       0 12px 40px -8px color-mix(in oklab, var(--brand-orange) 8%, transparent);
   }
+
+  .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
 
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }

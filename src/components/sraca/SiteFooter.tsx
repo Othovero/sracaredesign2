@@ -86,7 +86,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-[11px] uppercase tracking-widest text-stone-base/50 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} SRACA — Stockport Race &amp; Culture Awards</span>
+          <span>© {new Date().getFullYear()} SRACA - Stockport Race &amp; Culture Awards</span>
           <span>Stockport, UK</span>
         </div>
       </div>

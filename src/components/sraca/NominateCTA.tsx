@@ -49,7 +49,7 @@ export function NominateCTA() {
         await (navigator as Navigator).share(data);
         return;
       } catch {
-        /* user cancelled — fall through to copy */
+        /* user cancelled - fall through to copy */
       }
     }
     try {
@@ -66,11 +66,11 @@ export function NominateCTA() {
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-stone-base p-8 ring-1 ring-ink/8 sm:p-16">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 -right-32 size-[420px] rounded-full bg-brand-yellow/30 blur-3xl"
+          className="pointer-events-none absolute -top-32 -right-32 size-[420px] rounded-full bg-brand-gold-deep/30 blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-32 -left-32 size-[420px] rounded-full bg-brand-orange/20 blur-3xl"
+          className="pointer-events-none absolute -bottom-32 -left-32 size-[420px] rounded-full bg-brand-purple-mid/20 blur-3xl"
         />
 
         <div className="relative grid items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
@@ -120,7 +120,7 @@ export function NominateCTA() {
                   className="rounded-2xl bg-stone-base/80 p-3 ring-1 ring-ink/5 sm:p-4"
                 >
                   <span className="display block text-2xl text-brand-orange tabular-nums sm:text-3xl">
-                    {t.v === undefined ? "—" : String(t.v).padStart(2, "0")}
+                    {t.v === undefined ? "-" : String(t.v).padStart(2, "0")}
                   </span>
                   <span className="mt-1 block text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
                     {t.k}
@@ -130,7 +130,7 @@ export function NominateCTA() {
             </div>
             <p className="mt-6 text-sm font-medium text-ink">
               {time?.done
-                ? "Nominations are now closed — thank you."
+                ? "Nominations are now closed - thank you."
                 : "Counting down to 31 October 2026, 23:59."}
             </p>
             <p className="mt-2 text-xs leading-relaxed text-ink-soft">
@@ -148,7 +148,7 @@ export function NominateCTA() {
           </div>
         </div>
 
-        {/* Share row — full width, below the countdown */}
+        {/* Share row - full width, below the countdown */}
         <div className="relative mt-10 rounded-2xl border border-ink/8 bg-white/70 p-5 backdrop-blur">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>

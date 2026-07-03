@@ -6,7 +6,7 @@ const NOMINATE_URL =
 const INSTAGRAM_POST_URL =
   "https://www.instagram.com/p/DVOEE1FjXxO/?igsh=dm14NTlrdWl1eXd4";
 
-// Nominations close 31 October 2026, 23:59 — keep in sync with NominateCTA.
+// Nominations close 31 October 2026, 23:59 - keep in sync with NominateCTA.
 const NOMINATIONS_DEADLINE = new Date("2026-10-31T23:59:00").getTime();
 
 export function Hero() {
@@ -17,15 +17,15 @@ export function Hero() {
       {/* Living brand blobs */}
       <div
         aria-hidden
-        className="animate-blob pointer-events-none absolute -top-24 -left-32 size-[420px] rounded-full bg-brand-yellow/25 blur-3xl"
+        className="animate-blob pointer-events-none absolute -top-24 -left-32 size-[420px] rounded-full bg-brand-gold-deep/30 blur-3xl"
       />
       <div
         aria-hidden
-        className="animate-blob-2 pointer-events-none absolute top-40 -right-32 size-[460px] rounded-full bg-brand-purple/15 blur-3xl"
+        className="animate-blob-2 pointer-events-none absolute top-40 -right-32 size-[460px] rounded-full bg-brand-purple-mid/22 blur-3xl"
       />
       <div
         aria-hidden
-        className="animate-blob-3 pointer-events-none absolute -bottom-32 left-1/3 size-[380px] rounded-full bg-brand-orange/20 blur-3xl"
+        className="animate-blob-3 pointer-events-none absolute -bottom-32 left-1/3 size-[380px] rounded-full bg-brand-gold-deep/22 blur-3xl"
       />
 
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">

@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SRACA — Stockport Race & Culture Awards" },
+      { title: "SRACA - Stockport Race & Culture Awards" },
       { name: "description", content: "The annual Stockport Race & Culture Awards celebrating individuals, groups and businesses driving diversity and race equality across Stockport." },
       { name: "author", content: "Stockport Race Equality Partnership" },
-      { property: "og:title", content: "SRACA — Stockport Race & Culture Awards" },
+      { property: "og:title", content: "SRACA - Stockport Race & Culture Awards" },
       { property: "og:description", content: "Celebrating the people and organisations shaping a more equitable, vibrant Stockport." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

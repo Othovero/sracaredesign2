@@ -45,7 +45,7 @@ export function PastWinners() {
         <figure className="hover-zoom mt-12 hidden rounded-[2rem] shadow-lift ring-1 ring-ink/8 sm:block">
           <img
             src={POSTER_URL}
-            alt="Winners of the Stockport Race and Culture Awards 2026 — ten laurel portraits including Volunteer Champion Nadine Travers, Helping Hand Sadia Akbar, Voluntary Organisation Chelwood Foodbank Plus, Health & Wellbeing Tasmilah Ahmed, Unsung Hero Nadia Khan, Corporate Social Responsibility The Goodness Collective, Distinguished Service Jules Palfreyman, Lifetime Achievement Prof. Dawn Edge, Special Award Yvonne Shelton, Young Person Paula Aga."
+            alt="Winners of the Stockport Race and Culture Awards 2026 - ten laurel portraits including Volunteer Champion Nadine Travers, Helping Hand Sadia Akbar, Voluntary Organisation Chelwood Foodbank Plus, Health & Wellbeing Tasmilah Ahmed, Unsung Hero Nadia Khan, Corporate Social Responsibility The Goodness Collective, Distinguished Service Jules Palfreyman, Lifetime Achievement Prof. Dawn Edge, Special Award Yvonne Shelton, Young Person Paula Aga."
             className="block h-auto w-full"
             loading="lazy"
           />

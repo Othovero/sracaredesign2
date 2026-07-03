@@ -15,13 +15,13 @@ import { SiteFooter } from "@/components/sraca/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SRACA — Stockport Race & Culture Awards" },
+      { title: "SRACA - Stockport Race & Culture Awards" },
       {
         name: "description",
         content:
           "The annual Stockport Race & Culture Awards. Nominate, attend the gala, or sponsor a category celebrating diversity and race equality across Stockport.",
       },
-      { property: "og:title", content: "SRACA — Stockport Race & Culture Awards" },
+      { property: "og:title", content: "SRACA - Stockport Race & Culture Awards" },
       {
         property: "og:description",
         content:

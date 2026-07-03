@@ -27,7 +27,9 @@
       "Bash(git ls-remote *)",
       "Bash(NITRO_PRESET=vercel npm run build)",
       "Bash(cp \"archive vids/2024.mp4\" public/recap-2024.mp4)",
-      "Bash(cp \"archive vids/2025.mp4\" public/recap-2025.mp4)"
+      "Bash(cp \"archive vids/2025.mp4\" public/recap-2025.mp4)",
+      "Bash(grep -rn \"—\" src/routes/__root.tsx src/routes/index.tsx)",
+      "Bash(grep -rln \"—\" src/components/sraca/*.tsx)"
     ]
   }
 }
