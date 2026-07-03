@@ -29,7 +29,8 @@ export function About() {
             The awards are presented by{" "}
             <strong className="text-ink">Stockport Race Equality Partnership (S-REP)</strong>
             , a community organisation working to integrate communities, influence
-            decision-makers and improve outcomes for diverse groups across Stockport.
+            decision-makers and improve outcomes for diverse groups across Stockport
+            and Greater Manchester.
           </p>
 
           <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-ink/8 bg-ink/8 sm:grid-cols-3">

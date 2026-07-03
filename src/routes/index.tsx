@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 import { SiteNav } from "@/components/sraca/SiteNav";
 import { Hero } from "@/components/sraca/Hero";
 import { About } from "@/components/sraca/About";
@@ -15,18 +16,10 @@ import { SiteFooter } from "@/components/sraca/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SRACA - Stockport Race & Culture Awards" },
-      {
-        name: "description",
-        content:
-          "The annual Stockport Race & Culture Awards. Nominate, attend the gala, or sponsor a category celebrating diversity and race equality across Stockport.",
-      },
-      { property: "og:title", content: "SRACA - Stockport Race & Culture Awards" },
-      {
-        property: "og:description",
-        content:
-          "Celebrating the people, groups and businesses shaping a more equitable Stockport. Nominations open now.",
-      },
+      { title: SITE_NAME },
+      { name: "description", content: SITE_DESCRIPTION },
+      { property: "og:title", content: SITE_NAME },
+      { property: "og:description", content: SITE_DESCRIPTION },
     ],
   }),
   component: Index,

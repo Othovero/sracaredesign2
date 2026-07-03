@@ -3,7 +3,7 @@ import { useState, type FormEvent } from "react";
 // Get a free access key at https://web3forms.com (just enter an email - no
 // signup, no verification wait) and paste it in here. The key is safe to
 // expose client-side; it only identifies which inbox submissions go to.
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "9623fd0d-867f-4c1f-8d23-7e55671f5db2";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -65,7 +65,7 @@ export function Contact() {
             <div>
               <dt className="eyebrow !text-ink-soft">Office</dt>
               <dd className="mt-1 text-lg font-semibold text-ink">
-                The Space, 26 St. Petersgate, Stockport SK1 1HD
+                The Space, 26 St. Petersgate, Stockport, Greater Manchester SK1 1HD
               </dd>
             </div>
             <div>

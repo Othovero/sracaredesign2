@@ -11,6 +11,48 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_OG_IMAGE, SITE_URL } from "../lib/seo";
+
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Stockport Race & Culture Awards (SRACA)",
+  alternateName: "SRACA",
+  url: SITE_URL,
+  logo: `${SITE_URL}/sraca-mark.svg`,
+  image: SITE_OG_IMAGE,
+  description: SITE_DESCRIPTION,
+  areaServed: {
+    "@type": "City",
+    name: "Stockport",
+    containedInPlace: {
+      "@type": "AdministrativeArea",
+      name: "Greater Manchester",
+    },
+  },
+  location: {
+    "@type": "Place",
+    name: "The Space",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "26 St. Petersgate",
+      addressLocality: "Stockport",
+      addressRegion: "Greater Manchester",
+      postalCode: "SK1 1HD",
+      addressCountry: "GB",
+    },
+  },
+  sameAs: [
+    "https://www.facebook.com/RaceEqualitySREP",
+    "https://www.instagram.com/srep_gm",
+    "https://srep.co.uk",
+  ],
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Stockport Race Equality Partnership (S-REP)",
+    url: "https://srep.co.uk",
+  },
+};
 
 function NotFoundComponent() {
   return (
@@ -77,22 +119,54 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SRACA - Stockport Race & Culture Awards" },
-      { name: "description", content: "The annual Stockport Race & Culture Awards celebrating individuals, groups and businesses driving diversity and race equality across Stockport." },
+      { title: SITE_NAME },
+      { name: "description", content: SITE_DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "SRACA, Stockport Race and Culture Awards, diversity awards Stockport, race equality awards Greater Manchester, community awards Manchester, S-REP, Stockport Race Equality Partnership, Stockport gala, UK diversity awards, nominate community award",
+      },
       { name: "author", content: "Stockport Race Equality Partnership" },
-      { property: "og:title", content: "SRACA - Stockport Race & Culture Awards" },
-      { property: "og:description", content: "Celebrating the people and organisations shaping a more equitable, vibrant Stockport." },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#2e0845" },
+
+      // Geo / local SEO - Stockport, Greater Manchester, UK
+      { name: "geo.region", content: "GB-ENG" },
+      { name: "geo.placename", content: "Stockport, Greater Manchester, UK" },
+      { name: "geo.position", content: "53.4084;-2.1494" },
+      { name: "ICBM", content: "53.4084, -2.1494" },
+
+      // Open Graph
+      { property: "og:title", content: SITE_NAME },
+      { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:locale", content: "en_GB" },
+      { property: "og:image", content: SITE_OG_IMAGE },
+      { property: "og:image:alt", content: "Guests celebrating at the SRACA gala in Stockport Town Hall" },
+
+      // Twitter / X card
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SITE_NAME },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { name: "twitter:image", content: SITE_OG_IMAGE },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/sraca-mark.svg" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75,800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        attrs: { type: "application/ld+json" },
+        children: JSON.stringify(ORGANIZATION_JSON_LD),
       },
     ],
   }),
