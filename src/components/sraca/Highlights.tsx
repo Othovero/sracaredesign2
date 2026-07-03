@@ -45,6 +45,34 @@ const slides = [
     img: "/IMG-20251002-WA0003.jpg",
     alt: "Guests sharing a joyful moment at a SRACA gala table",
   },
+  {
+    eyebrow: "Live music",
+    title: "The night had a soundtrack",
+    caption: "Live sets carrying the room from speeches into celebration.",
+    img: "/IMG-20251002-WA0002.jpg",
+    alt: "A musician singing and playing guitar on stage at the SRACA gala",
+  },
+  {
+    eyebrow: "Our volunteers",
+    title: "The people who made it happen",
+    caption: "The volunteer team who kept the evening running, front and centre.",
+    img: "/IMG-20251002-WA0006.jpg",
+    alt: "Five SRACA volunteers wearing sashes posing together at the gala",
+  },
+  {
+    eyebrow: "Hands up",
+    title: "Joy, unfiltered",
+    caption: "The moment the dancefloor truly came alive.",
+    img: "/IMG-20251002-WA0008.jpg",
+    alt: "Guests cheering with hands raised on the dancefloor at the SRACA gala",
+  },
+  {
+    eyebrow: "Strings and soul",
+    title: "Sounds from home",
+    caption: "Traditional instruments bringing Stockport's cultures to the stage.",
+    img: "/IMG-20251002-WA0009.jpg",
+    alt: "Two musicians playing oud instruments on stage at the SRACA gala",
+  },
 ];
 
 const recaps = [

@@ -77,7 +77,7 @@ export function SiteFooter() {
           <FooterCol
             title="Connect"
             links={[
-              ["awards@srep.co.uk", "mailto:awards@srep.co.uk"],
+              ["email@srep.co.uk", "mailto:email@srep.co.uk"],
               ["Instagram", "https://www.instagram.com/srep_gm?utm_source=ig_web_button_share_sheet&igsh=YWRsNW5taDE5NXdk"],
               ["Facebook", "https://www.facebook.com/RaceEqualitySREP"],
               ["S-REP", "https://srep.co.uk"],

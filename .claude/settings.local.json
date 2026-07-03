@@ -29,7 +29,11 @@
       "Bash(cp \"archive vids/2024.mp4\" public/recap-2024.mp4)",
       "Bash(cp \"archive vids/2025.mp4\" public/recap-2025.mp4)",
       "Bash(grep -rn \"—\" src/routes/__root.tsx src/routes/index.tsx)",
-      "Bash(grep -rln \"—\" src/components/sraca/*.tsx)"
+      "Bash(grep -rln \"—\" src/components/sraca/*.tsx)",
+      "Bash(ls \"more uploads/\")",
+      "Bash(ls \"more uploads/sponsors/\")",
+      "Bash(ls \"archive vids/\")",
+      "Bash(ls public/*.jpg public/*.jpeg)"
     ]
   }
 }
