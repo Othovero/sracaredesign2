@@ -36,11 +36,11 @@ export function Contact() {
       {/* Living brand hue - bridges the sponsors section above */}
       <div
         aria-hidden
-        className="animate-blob pointer-events-none absolute -top-20 right-0 size-[460px] rounded-full bg-brand-gold-deep/32 blur-3xl"
+        className="animate-blob pointer-events-none absolute -top-20 right-0 size-[460px] rounded-full bg-brand-gold-deep/34 blur-2xl"
       />
       <div
         aria-hidden
-        className="animate-blob-2 pointer-events-none absolute bottom-0 -left-24 size-[400px] rounded-full bg-brand-purple-mid/26 blur-3xl"
+        className="animate-blob-2 pointer-events-none absolute bottom-0 -left-24 size-[400px] rounded-full bg-brand-purple-mid/26 blur-2xl"
       />
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
         <div>

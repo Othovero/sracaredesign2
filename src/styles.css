@@ -72,10 +72,10 @@
   --brand-orange: oklch(0.66 0.135 78);          /* deep gold accent (was orange) */
   --brand-gold: oklch(0.66 0.135 78);            /* alias */
   --brand-gold-soft: oklch(0.78 0.14 82);        /* lighter gold for highlights */
-  --brand-gold-deep: oklch(0.5 0.15 76);         /* rich, richer gold for ambient blobs */
+  --brand-gold-deep: oklch(0.55 0.19 78);        /* rich, saturated gold for ambient blobs */
   --brand-yellow: oklch(0.82 0.15 82);           /* warm champagne gold */
   --brand-purple: oklch(0.62 0.20 305);          /* #9E57E8 */
-  --brand-purple-mid: oklch(0.42 0.185 303);     /* richer mid-purple for ambient blobs */
+  --brand-purple-mid: oklch(0.42 0.20 303);      /* richer mid-purple for ambient blobs */
   --brand-purple-deep: oklch(0.25 0.12 305);     /* #2E0845 */
   --brand-green: oklch(0.68 0.18 135);           /* #5CB000 */
 

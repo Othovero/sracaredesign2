@@ -6,8 +6,8 @@ const NOMINATE_URL =
 const INSTAGRAM_POST_URL =
   "https://www.instagram.com/p/DVOEE1FjXxO/?igsh=dm14NTlrdWl1eXd4";
 
-// Nominations close 31 October 2026, 23:59 - keep in sync with NominateCTA.
-const NOMINATIONS_DEADLINE = new Date("2026-10-31T23:59:00").getTime();
+// Nominations close 30 September 2026, 23:59 - keep in sync with NominateCTA.
+const NOMINATIONS_DEADLINE = new Date("2026-09-30T23:59:00").getTime();
 
 export function Hero() {
   const nominationsOpen = Date.now() < NOMINATIONS_DEADLINE;
@@ -17,15 +17,15 @@ export function Hero() {
       {/* Living brand blobs */}
       <div
         aria-hidden
-        className="animate-blob pointer-events-none absolute -top-24 -left-32 size-[420px] rounded-full bg-brand-gold-deep/30 blur-3xl"
+        className="animate-blob pointer-events-none absolute -top-24 -left-32 size-[420px] rounded-full bg-brand-gold-deep/32 blur-2xl"
       />
       <div
         aria-hidden
-        className="animate-blob-2 pointer-events-none absolute top-40 -right-32 size-[460px] rounded-full bg-brand-purple-mid/22 blur-3xl"
+        className="animate-blob-2 pointer-events-none absolute top-40 -right-32 size-[460px] rounded-full bg-brand-purple-mid/24 blur-2xl"
       />
       <div
         aria-hidden
-        className="animate-blob-3 pointer-events-none absolute -bottom-32 left-1/3 size-[380px] rounded-full bg-brand-gold-deep/22 blur-3xl"
+        className="animate-blob-3 pointer-events-none absolute -bottom-32 left-1/3 size-[380px] rounded-full bg-brand-gold-deep/26 blur-2xl"
       />
 
       <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
@@ -37,7 +37,7 @@ export function Hero() {
           >
             <span className="eyebrow !text-ink">
               {nominationsOpen
-                ? "Nominations close: 31 Oct 2026"
+                ? "Nominations close: 30 Sept 2026"
                 : "Nominations closed for 2026"}
             </span>
           </span>

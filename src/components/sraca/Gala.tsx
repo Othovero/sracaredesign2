@@ -33,7 +33,7 @@ export function Gala() {
       {/* Living dark-purple hue bridging the gala + roll of honour */}
       <div
         aria-hidden
-        className="animate-blob-2 pointer-events-none absolute -bottom-24 -left-16 size-[440px] rounded-full bg-brand-purple-deep/25 blur-3xl"
+        className="animate-blob-2 pointer-events-none absolute -bottom-24 -left-16 size-[440px] rounded-full bg-brand-purple-deep/28 blur-2xl"
       />
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] ring-1 ring-ink/8">
         <img

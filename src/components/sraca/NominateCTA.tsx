@@ -6,8 +6,8 @@ const NOMINATE_URL =
 const SHARE_TEXT =
   "Nominations are OPEN for the Stockport Race & Culture Awards 2027. Know someone shaping a more equitable Stockport? Nominate them now:";
 
-// Nominations close 31 October 2026, 23:59
-const DEADLINE = new Date("2026-10-31T23:59:00").getTime();
+// Nominations close 30 September 2026, 23:59 - keep in sync with Hero.
+const DEADLINE = new Date("2026-09-30T23:59:00").getTime();
 
 type TimeLeft = { days: number; hours: number; mins: number; secs: number; done: boolean };
 
@@ -66,11 +66,11 @@ export function NominateCTA() {
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-stone-base p-8 ring-1 ring-ink/8 sm:p-16">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-32 -right-32 size-[420px] rounded-full bg-brand-gold-deep/30 blur-3xl"
+          className="pointer-events-none absolute -top-32 -right-32 size-[420px] rounded-full bg-brand-gold-deep/32 blur-2xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-32 -left-32 size-[420px] rounded-full bg-brand-purple-mid/20 blur-3xl"
+          className="pointer-events-none absolute -bottom-32 -left-32 size-[420px] rounded-full bg-brand-purple-mid/22 blur-2xl"
         />
 
         <div className="relative grid items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
@@ -85,7 +85,7 @@ export function NominateCTA() {
               Nominations take less than ten minutes. You can nominate anyone in
               Stockport! Gala details will be announced soon,
               but nominations close{" "}
-              <strong className="text-ink">31 October 2026, 23:59</strong>.
+              <strong className="text-ink">30 September 2026, 23:59</strong>.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -131,7 +131,7 @@ export function NominateCTA() {
             <p className="mt-6 text-sm font-medium text-ink">
               {time?.done
                 ? "Nominations are now closed - thank you."
-                : "Counting down to 31 October 2026, 23:59."}
+                : "Counting down to 30 September 2026, 23:59."}
             </p>
             <p className="mt-2 text-xs leading-relaxed text-ink-soft">
               Shortlist announced after close. Gala date to be confirmed.

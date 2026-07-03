@@ -87,7 +87,15 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-[11px] uppercase tracking-widest text-stone-base/50 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} SRACA - Stockport Race &amp; Culture Awards</span>
-          <span>Stockport, UK</span>
+          <span>
+            Developed by{" "}
+            <a
+              href="mailto:bakangraditedu@gmail.com?subject=Web%20Development%20Inquiry&body=Hi%2C%0A%0AI'd%20like%20to%20enquire%20about%20a%20web%20development%20project.%0A%0AProject%3A%0ABudget%3A%0ATimeline%3A%0A%0AThank%20you."
+              className="text-stone-base/70 underline decoration-white/20 underline-offset-2 transition-colors hover:text-brand-yellow hover:decoration-brand-yellow"
+            >
+              Verolabs
+            </a>
+          </span>
         </div>
       </div>
     </footer>
