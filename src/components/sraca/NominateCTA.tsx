@@ -6,8 +6,8 @@ const NOMINATE_URL =
 const SHARE_TEXT =
   "Nominations are OPEN for the Stockport Race & Culture Awards 2027. Know someone shaping a more equitable Stockport? Nominate them now:";
 
-// Nominations close 30 September 2026, 23:59 - keep in sync with Hero.
-const DEADLINE = new Date("2026-09-30T23:59:00").getTime();
+// Nominations close 30 December 2026, 23:59 - keep in sync with Hero.
+const DEADLINE = new Date("2026-12-30T23:59:00").getTime();
 
 type TimeLeft = { days: number; hours: number; mins: number; secs: number; done: boolean };
 
@@ -83,9 +83,9 @@ export function NominateCTA() {
             </h2>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
               Nominations take less than ten minutes. You can nominate anyone in
-              Stockport! Gala details will be announced soon,
+              Stockport! The gala takes place on <strong className="text-ink">Friday 16 April 2027</strong>,
               but nominations close{" "}
-              <strong className="text-ink">30 September 2026, 23:59</strong>.
+              <strong className="text-ink">30 December 2026, 23:59</strong>.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -131,10 +131,10 @@ export function NominateCTA() {
             <p className="mt-6 text-sm font-medium text-ink">
               {time?.done
                 ? "Nominations are now closed - thank you."
-                : "Counting down to 30 September 2026, 23:59."}
+                : "Counting down to 30 December 2026, 23:59."}
             </p>
             <p className="mt-2 text-xs leading-relaxed text-ink-soft">
-              Shortlist announced after close. Gala date to be confirmed.
+              Shortlist announced after close. Awards gala: Friday 16 April 2027.
             </p>
             <a
               href={NOMINATE_URL}

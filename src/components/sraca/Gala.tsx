@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ImageLightbox } from "./ImageLightbox";
 
 const placeholders = [
-  { k: "Date", v: "TBA" },
+  { k: "Date", v: "Friday 16 April 2027" },
   { k: "Venue", v: "TBA" },
   { k: "Doors", v: "TBA" },
   { k: "Dress code", v: "TBA" },
@@ -47,14 +47,14 @@ export function Gala() {
           <div className="glass-card min-w-0 rounded-3xl p-6 sm:p-10">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow/30 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-brand-purple-deep ring-1 ring-brand-yellow/50">
 
-              Coming soon
+              Save the date
             </span>
             <h2 className="display mt-4 text-4xl text-ink sm:text-5xl text-balance">
               An evening of recognition.
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft sm:text-lg">
-              The 2027 gala details: date, venue, programme and ticketing are
-              being finalised and will be announced shortly. Nominate now so your
+              Save the date: the 2027 gala is on Friday 16 April 2027. Venue,
+              programme and ticketing will be announced shortly. Nominate now so your
               champion is in the room when names are called.
             </p>
 

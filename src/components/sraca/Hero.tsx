@@ -6,8 +6,8 @@ const NOMINATE_URL =
 const INSTAGRAM_POST_URL =
   "https://www.instagram.com/p/DVOEE1FjXxO/?igsh=dm14NTlrdWl1eXd4";
 
-// Nominations close 30 September 2026, 23:59 - keep in sync with NominateCTA.
-const NOMINATIONS_DEADLINE = new Date("2026-09-30T23:59:00").getTime();
+// Nominations close 30 December 2026, 23:59 - keep in sync with NominateCTA.
+const NOMINATIONS_DEADLINE = new Date("2026-12-30T23:59:00").getTime();
 
 export function Hero() {
   const nominationsOpen = Date.now() < NOMINATIONS_DEADLINE;
@@ -37,7 +37,7 @@ export function Hero() {
           >
             <span className="eyebrow !text-ink">
               {nominationsOpen
-                ? "Nominations close: 30 Sept 2026"
+                ? "Nominations close: 30 Dec 2026"
                 : "Nominations closed for 2026"}
             </span>
           </span>
@@ -110,7 +110,7 @@ export function Hero() {
 
       <dl className="relative mx-auto mt-20 grid max-w-7xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink/8 bg-ink/8 text-ink sm:grid-cols-4">
         {[
-          { k: "The date", v: "TBA" },
+          { k: "The date", v: "Fri 16 April 2027" },
           { k: "Venue", v: "TBA" },
           { k: "Doors", v: "TBA" },
           { k: "Dress code", v: "TBA" },
