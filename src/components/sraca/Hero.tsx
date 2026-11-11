@@ -1,4 +1,5 @@
 import { FaInstagram } from "react-icons/fa6";
+import { GALA } from "@/lib/event";
 
 const NOMINATE_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeHGQOk1lfTxVEhd8Lk0Bk9vEqKjrqqVCK9v8OhXVie5Hle8g/viewform";
@@ -71,6 +72,12 @@ export function Hero() {
             >
               Gala details
             </a>
+            <a
+              href="#sponsors"
+              className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/60 px-6 py-3.5 text-sm font-semibold text-ink backdrop-blur transition-colors hover:bg-white"
+            >
+              Sponsor an Award
+            </a>
           </div>
         </div>
 
@@ -110,14 +117,29 @@ export function Hero() {
 
       <dl className="relative mx-auto mt-20 grid max-w-7xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-ink/8 bg-ink/8 text-ink sm:grid-cols-4">
         {[
-          { k: "The date", v: "Fri 16 April 2027" },
-          { k: "Venue", v: "TBA" },
-          { k: "Doors", v: "TBA" },
-          { k: "Dress code", v: "TBA" },
+          { k: "The date", v: GALA.dateShort },
+          {
+            k: "Venue",
+            v: (
+              <>
+                <a
+                  href={GALA.venueUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-brand-orange hover:underline"
+                >
+                  {GALA.venueName}
+                </a>
+                <span className="block text-sm font-normal text-ink-soft">Stockport SK4 2JU</span>
+              </>
+            ),
+          },
+          { k: "Timings", v: `Doors ${GALA.doors}, carriages ${GALA.carriages}` },
+          { k: "Dress code", v: GALA.dressCode },
         ].map((item) => (
-          <div key={item.k} className="bg-stone-base px-5 py-5">
+          <div key={item.k} className="min-w-0 bg-stone-base px-5 py-5">
             <dt className="eyebrow !text-ink-soft">{item.k}</dt>
-            <dd className="mt-1 text-base font-semibold">
+            <dd className="mt-1 break-words text-base font-semibold">
               {item.v === "TBA" ? (
                 <span className="text-ink-soft">To be announced</span>
               ) : (

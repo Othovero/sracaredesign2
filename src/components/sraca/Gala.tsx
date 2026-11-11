@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { ImageLightbox } from "./ImageLightbox";
+import { GALA } from "@/lib/event";
 
-const placeholders = [
-  { k: "Date", v: "Friday 16 April 2027" },
-  { k: "Venue", v: "TBA" },
-  { k: "Doors", v: "TBA" },
-  { k: "Dress code", v: "TBA" },
+const details: { k: string; v: string; href?: string; sub?: string }[] = [
+  { k: "Date", v: GALA.dateLong },
+  { k: "Venue", v: GALA.venueName, href: GALA.venueUrl, sub: GALA.venueAddress },
+  { k: "Doors", v: GALA.doors },
+  { k: "Carriages", v: GALA.carriages },
+  { k: "Dress code", v: GALA.dressCode },
   { k: "Programme", v: "TBA" },
   { k: "Tickets", v: "On sale soon" },
 ];
@@ -53,27 +55,43 @@ export function Gala() {
               An evening of recognition.
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft sm:text-lg">
-              Save the date: the 2027 gala is on Friday 16 April 2027. Venue,
-              programme and ticketing will be announced shortly. Nominate now so your
+              Save the date: the 2027 gala is on Friday 16 April 2027 at the Royal Nawaab Pyramid,
+              Stockport. Programme and ticketing will be announced shortly. Nominate now so your
               champion is in the room when names are called.
             </p>
 
             <dl className="mt-8 divide-y divide-ink/10 rounded-2xl bg-stone-base/60 ring-1 ring-ink/5">
-              {placeholders.map((d) => (
+              {details.map((d) => (
                 <div
                   key={d.k}
-                  className="flex items-center justify-between gap-3 px-4 py-3.5 text-sm sm:px-5"
+                  className={`flex justify-between gap-3 px-4 py-3.5 text-sm sm:px-5 ${
+                    d.sub ? "items-start" : "items-center"
+                  }`}
                 >
-                  <dt className="text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
+                  <dt className="shrink-0 text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
                     {d.k}
                   </dt>
-                  <dd>
+                  <dd className="min-w-0 text-right">
                     {d.v === "TBA" ? (
                       <span className="inline-flex whitespace-nowrap rounded-full bg-ink/[0.06] px-3 py-1 text-xs font-semibold text-ink-soft">
                         To be announced
                       </span>
+                    ) : d.href ? (
+                      <a
+                        href={d.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-semibold text-ink hover:text-brand-orange hover:underline"
+                      >
+                        {d.v}
+                      </a>
                     ) : (
                       <span className="font-semibold text-ink">{d.v}</span>
+                    )}
+                    {d.sub && (
+                      <span className="mt-0.5 block text-xs text-ink-soft text-balance">
+                        {d.sub}
+                      </span>
                     )}
                   </dd>
                 </div>

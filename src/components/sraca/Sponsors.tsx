@@ -1,13 +1,10 @@
+import { SPONSORSHIP_EMAIL } from "@/lib/event";
+
 const sponsors = [
   {
     name: "Stockport Race Equality Partnership",
     src: "/sponsors/srep.avif",
     href: "https://srep.co.uk",
-  },
-  {
-    name: "musicMagpie",
-    src: "/sponsors/musicmagpie.avif",
-    href: "https://www.musicmagpie.co.uk",
   },
   {
     name: "Together Trust",
@@ -31,7 +28,7 @@ export function Sponsors() {
           </p>
         </div>
 
-        <ul className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3">
+        <ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-5 sm:grid-cols-2">
           {sponsors.map((s, i) => (
             <li key={s.name} className="stagger-item" style={{ animationDelay: `${i * 110}ms` }}>
               <a
@@ -53,12 +50,22 @@ export function Sponsors() {
         </ul>
 
         <div className="mt-16 text-center">
-          <p className="mx-auto mb-6 max-w-md text-sm text-ink-soft">
-            Want your organisation alongside theirs? Sponsor a category and help
-            celebrate the people shaping a more equitable Stockport.
-          </p>
+          <div className="mx-auto mb-8 max-w-2xl space-y-4 text-ink-soft">
+            <h3 className="display text-2xl text-ink sm:text-3xl text-balance">
+              Are you ready to celebrate the diverse communities in Stockport?
+            </h3>
+            <p>
+              Would you like your organisation to appear here? There are several sponsorship options
+              to suit all budgets. Your name will appear on the website and in the event brochure,
+              and you will also receive free places at the event.
+            </p>
+            <p>
+              Please help us celebrate the people shaping a more equitable Stockport, and let's make
+              our 5th year of these awards the best one yet.
+            </p>
+          </div>
           <a
-            href="mailto:email@srep.co.uk?subject=SRACA%20Sponsorship%20Enquiry&body=Hi%20SRACA%20team%2C%0A%0AWe'd%20like%20to%20explore%20sponsoring%20the%20Stockport%20Race%20%26%20Culture%20Awards.%0A%0AOrganisation%3A%0AContact%20name%3A%0APhone%3A%0A%0AThank%20you."
+            href={`mailto:${SPONSORSHIP_EMAIL}?subject=SRACA%20Sponsorship%20Enquiry&body=Hi%20SRACA%20team%2C%0A%0AWe'd%20like%20to%20explore%20sponsoring%20the%20Stockport%20Race%20%26%20Culture%20Awards.%0A%0AOrganisation%3A%0AContact%20name%3A%0APhone%3A%0A%0AThank%20you.`}
             className="inline-flex items-center gap-2 rounded-full bg-brand-purple-deep px-7 py-4 text-sm font-semibold text-stone-base shadow-lift transition-transform hover:scale-[1.03]"
           >
             <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
@@ -67,6 +74,12 @@ export function Sponsors() {
             </svg>
             Email us to sponsor
           </a>
+          <p className="mt-3 text-xs text-ink-soft">
+            Or email{" "}
+            <a href={`mailto:${SPONSORSHIP_EMAIL}`} className="underline hover:text-brand-orange">
+              {SPONSORSHIP_EMAIL}
+            </a>
+          </p>
         </div>
       </div>
     </section>
