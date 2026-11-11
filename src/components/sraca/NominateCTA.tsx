@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SITE_URL } from "@/lib/seo";
 
 const NOMINATE_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeHGQOk1lfTxVEhd8Lk0Bk9vEqKjrqqVCK9v8OhXVie5Hle8g/viewform";
@@ -23,10 +24,9 @@ function calcTimeLeft(): TimeLeft {
   };
 }
 
-function getShareUrl() {
-  if (typeof window === "undefined") return "https://sraca.co.uk";
-  return window.location.origin + window.location.pathname;
-}
+// Shared links always point at the public site and open straight on this section.
+// A fixed URL (not window.location) also keeps server and client HTML identical.
+const SHARE_URL = `${SITE_URL}/#nominate`;
 
 export function NominateCTA() {
   const [copied, setCopied] = useState(false);
@@ -38,7 +38,7 @@ export function NominateCTA() {
     return () => window.clearInterval(id);
   }, []);
 
-  const shareUrl = getShareUrl();
+  const shareUrl = SHARE_URL;
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedText = encodeURIComponent(SHARE_TEXT);
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddToCalendar } from "./AddToCalendar";
 import { ImageLightbox } from "./ImageLightbox";
 import { GALA } from "@/lib/event";
 
@@ -109,6 +110,7 @@ export function Gala() {
                 Nominate while you wait
                 <span aria-hidden>→</span>
               </a>
+              <AddToCalendar />
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-7 py-4 text-sm font-semibold text-ink hover:bg-accent"
